@@ -9,9 +9,9 @@ import {
   Mail,
   Clock,
   CheckCircle,
-  Wrench,
-  Building,
-  Factory,
+  Ship,
+  Globe,
+  Package,
   Shield,
   Zap,
   Target,
@@ -19,109 +19,232 @@ import {
   X,
   ArrowRight,
   Quote,
+  Truck,
+  Anchor,
+  Container,
+  PlayCircle,
+  ExternalLink,
+  Eye,
+  Lightbulb,
+  TrendingUp,
+  Handshake,
+  Heart,
 } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
-  { to: "/services", label: "Services" },
+  { to: "/products", label: "Products" },
   { to: "/vision-mission", label: "Vision & Mission" },
   { to: "/contact", label: "Contact" },
 ];
 
 const stats = [
-  { icon: Calendar, label: "Years of Experience", value: "25+" },
-  { icon: Users, label: "Happy Clients", value: "100+" },
-  { icon: Award, label: "Projects Completed", value: "100+" },
-  { icon: Star, label: "Quality Rating", value: "4.9/5" },
+  { icon: Calendar, label: "Years of Experience", value: "1" },
+  { icon: Globe, label: "Countries Served", value: "25+" },
+  { icon: Ship, label: "Shipments Delivered", value: "5000+" },
+  { icon: Star, label: "Client Satisfaction", value: "98%" },
 ];
 
 const features = [
   {
     icon: Shield,
-    title: "Quality Assurance",
+    title: "Reliable Shipping",
     description:
-      "ISO certified processes ensuring top-notch quality in every project",
+      "Secure and reliable shipping solutions with full cargo insurance coverage",
+    gradient: "from-blue-500 to-blue-600",
   },
   {
     icon: Zap,
-    title: "Fast Delivery",
-    description: "Efficient project management with on-time delivery guarantee",
+    title: "Fast Processing",
+    description:
+      "Quick order processing and expedited shipping to global destinations",
+    gradient: "from-yellow-500 to-orange-500",
   },
   {
     icon: Target,
-    title: "Precision Work",
+    title: "Quality Products",
     description:
-      "Advanced machinery and skilled craftsmen for precise fabrication",
+      "Premium quality products sourced from trusted manufacturers and suppliers",
+    gradient: "from-green-500 to-emerald-500",
   },
   {
-    icon: Wrench,
-    title: "Custom Solutions",
-    description:
-      "Tailored solutions designed to meet your specific requirements",
+    icon: Globe,
+    title: "Global Reach",
+    description: "Extensive network covering major markets across continents",
+    gradient: "from-purple-500 to-indigo-500",
   },
 ];
 
-const services = [
+const products = [
   {
-    icon: Building,
-    title: "Structural Steel Work",
-    description: "Complete structural steel fabrication and installation",
-    features: ["Pre-engineered Buildings", "Industrial Sheds", "Warehouses"],
+    icon: Package,
+    title: "Gems & Imitation Jewellery",
+    description: "Exquisite gems and high-quality imitation jewellery",
+    image:
+      "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    subCategories: [
+      "Natural Gemstones",
+      "Semi-Precious Stones",
+      "Fashion Jewellery",
+      "Costume Jewellery",
+      "Artificial Jewellery",
+      "Traditional Designs",
+    ],
+    color: "emerald",
   },
   {
-    icon: Factory,
-    title: "Custom Metal Fabrication",
-    description: "Precision metal work for industrial and commercial needs",
-    features: ["CNC Cutting", "Welding Services", "Metal Forming"],
+    icon: Globe,
+    title: "Spices & Food Products",
+    description: "Authentic Indian spices and organic food products",
+    image:
+      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    subCategories: [
+      "Whole Spices",
+      "Ground Spices",
+      "Organic Rice",
+      "Pulses & Lentils",
+      "Tea & Coffee",
+      "Ayurvedic Products",
+    ],
+    color: "emerald",
   },
   {
-    icon: Wrench,
-    title: "Steel Furniture",
-    description: "Durable and stylish steel furniture solutions",
-    features: ["Office Furniture", "Storage Solutions", "Custom Designs"],
+    icon: Target,
+    title: "Cold Pressed Oils",
+    description: "Pure and natural cold pressed oils for health and wellness",
+    image:
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    subCategories: [
+      "Coconut Oil",
+      "Sesame Oil",
+      "Groundnut Oil",
+      "Mustard Oil",
+      "Sunflower Oil",
+      "Castor Oil",
+    ],
+    color: "emerald",
+  },
+  {
+    icon: Shield,
+    title: "Carpets",
+    description: "Handwoven carpets and rugs with traditional craftsmanship",
+    image:
+      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    subCategories: [
+      "Hand-knotted Carpets",
+      "Silk Carpets",
+      "Wool Carpets",
+      "Cotton Dhurries",
+      "Prayer Rugs",
+      "Designer Carpets",
+    ],
+    color: "emerald",
+  },
+  {
+    icon: Zap,
+    title: "Pulses",
+    description: "High-quality pulses and legumes from Indian farms",
+    image:
+      "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    subCategories: [
+      "Chickpeas",
+      "Black Gram",
+      "Green Gram",
+      "Red Lentils",
+      "Kidney Beans",
+      "Field Peas",
+    ],
+    color: "emerald",
+  },
+  {
+    icon: Container,
+    title: "Agricultural Products",
+    description: "Fresh agricultural produce and processed foods",
+    image:
+      "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    subCategories: [
+      "Fresh Fruits",
+      "Vegetables",
+      "Grains & Cereals",
+      "Nuts & Dry Fruits",
+      "Processed Foods",
+      "Organic Products",
+    ],
+    color: "emerald",
   },
 ];
 
 const testimonials = [
   {
-    name: "Kundan Deshmukh",
-    company: "Parbhani Agrotech",
-    text: "Exceptional quality work and timely delivery. Trimurti Fabrication has been our go-to partner for all steel fabrication needs.",
+    name: "John Miller",
+    company: "Global Trading Inc., USA",
+    text: "DADHE Global Export has been our reliable partner for Indian textiles. Their quality control and timely delivery are exceptional.",
     rating: 5,
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
   },
   {
-    name: "AD. Kale",
-    company: "Wedding construction",
-    text: "Professional team with great attention to detail. Their custom solutions perfectly matched our requirements.",
+    name: "Maria Santos",
+    company: "European Imports Ltd., Spain",
+    text: "Professional service and competitive pricing. They handle all our spice imports from India with great care.",
     rating: 5,
+    image:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
   },
   {
-    name: "NSL ",
-    company: "NSL Sugar Factory",
-    text: "Reliable, efficient, and cost-effective solutions. Highly recommend their services for any fabrication work.",
+    name: "Ahmed Hassan",
+    company: "Middle East Trading Co., UAE",
+    text: "Excellent logistics support and product quality. DADHE Global Export is our preferred Indian supplier.",
     rating: 5,
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
   },
 ];
 
 const galleryImages = [
-  "/channel.jpeg",
-  "/work.jpeg",
-  "/hood.jpeg",
-  "/shed.jpeg",
-  "/home.jpeg",
-  "/shed-2.jpeg",
+  {
+    src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    title: "Global Shipping",
+    category: "Logistics",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    title: "Quality Textiles",
+    category: "Products",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    title: "Spice Exports",
+    category: "Products",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    title: "Container Loading",
+    category: "Operations",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    title: "Handicrafts",
+    category: "Products",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    title: "Global Network",
+    category: "Logistics",
+  },
 ];
 
 // CEO Section data
 const ceo = {
-  name: "Mr.Rajendra More",
+  name: "Mr. Rajesh Dadhe",
   title: "Founder & CEO",
-  image: "/ceo.jpg", // Place ceo.jpg in your public folder or update the path accordingly
-  message: `At Trimurti Fabrication, our mission is to deliver the highest quality steel fabrication and furniture solutions with integrity, innovation, and a customer-first approach. With over 25 years of experience, we are committed to exceeding client expectations and building lasting relationships. Thank you for trusting us with your projects.`,
+  image: "/ceo.jpg",
+  message: `At DADHE Global Export, we bridge the gap between Indian manufacturers and global markets. With over 15 years of experience, we are committed to delivering quality products and exceptional service to our international clients. Thank you for choosing us as your trusted export partner.`,
 };
 
-const TrimurtiFabrication = () => {
+const DADHEGlobalExport = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -135,30 +258,40 @@ const TrimurtiFabrication = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-0 m-0">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white shadow-lg sticky top-0 z-50">
+      <nav className="bg-white/95 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b border-emerald-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-blue-600">
-                  Trimurti Fabrication
-                </h1>
+                <div className="flex items-center gap-3">
+                  <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-2 rounded-xl">
+                    <Ship className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                      DADHE Global Exporters
+                    </h1>
+                    <p className="text-xs text-gray-500 font-medium">
+                      Connecting India to the World
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+              <div className="ml-10 flex items-baseline space-x-1">
                 {navLinks.map((link) => (
                   <button
                     key={link.label}
                     onClick={() => handleNavClick(link.to)}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
                       activeSection === link.to
-                        ? "bg-blue-600 text-white"
-                        : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                        ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg transform scale-105"
+                        : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600"
                     }`}
                   >
                     {link.label}
@@ -171,7 +304,7 @@ const TrimurtiFabrication = () => {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                className="inline-flex items-center justify-center p-3 rounded-xl text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 transition-colors"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -181,16 +314,16 @@ const TrimurtiFabrication = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <div className="md:hidden bg-white border-t border-emerald-100">
+            <div className="px-4 pt-2 pb-3 space-y-1">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.to)}
-                  className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  className={`block w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
                     activeSection === link.to
-                      ? "bg-blue-600 text-white"
-                      : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                      ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white"
+                      : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600"
                   }`}
                 >
                   {link.label}
@@ -201,348 +334,779 @@ const TrimurtiFabrication = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Expert Steel Fabrication
-              <span className="block text-yellow-400">Solutions</span>
+      {/* Hero Section with Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/ship.jpg"
+            alt="Global Export Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-emerald-800/80 to-teal-900/90"></div>
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <div className="animate-fade-in-up">
+            <div className="mb-8">
+              <span className="inline-block px-6 py-2 bg-yellow-400/20 text-yellow-300 rounded-full text-sm font-semibold backdrop-blur-sm border border-yellow-400/30">
+                🚢 Premium Export Services Since 2025
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 text-white leading-tight">
+              DADHE GLOBAL
+              <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                EXPORTERS
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              25+ years of excellence in structural steel work, custom metal
-              fabrication, and industrial solutions
+
+            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-emerald-100 leading-relaxed">
+              Connecting global markets with premium Indian textiles, authentic
+              spices, exquisite handicrafts, and quality products through
+              seamless export solutions
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-yellow-500 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors flex items-center justify-center">
-                Contact Us
-                <ArrowRight className="ml-2" size={20} />
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <button className="group bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-yellow-500/25 flex items-center">
+                <Ship className="mr-3 h-6 w-6" />
+                Start Exporting Today
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-                View Projects
+
+              <button className="group border-2 border-white/30 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 backdrop-blur-sm transition-all duration-300 flex items-center">
+                <PlayCircle className="mr-3 h-6 w-6" />
+                Watch Our Story
               </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section with Enhanced Design */}
+      {/* <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Trusted Globally
+            </h2>
+            <p className="text-xl text-gray-600">
+              Numbers that speak for our excellence
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="group text-center">
+                <div className="relative mb-6">
+                  <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-6 rounded-3xl shadow-xl group-hover:scale-110 transition-transform duration-300 mx-auto w-fit">
+                    <stat.icon className="text-white" size={40} />
+                  </div>
+                  <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"></div>
+                </div>
+                <h3 className="text-4xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                  {stat.value}
+                </h3>
+                <p className="text-gray-600 font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
+
+      {/* Vision & Mission Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-emerald-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 right-10 w-64 h-64 bg-emerald-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-blue-200/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-100 to-blue-100 text-emerald-700 rounded-full text-sm font-semibold mb-6">
+              <Eye className="h-4 w-4" />
+              Our Foundation
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+              Vision &{" "}
+              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
+                Mission
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Driven by our vision to connect India with the world, we are
+              committed to promoting Indian products globally while delivering
+              exceptional value to our international clients.
+            </p>
+          </div>
+
+          {/* Vision & Mission Cards */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-24">
+            {/* Vision Card */}
+            <div className="group relative bg-white rounded-3xl p-10 shadow-2xl overflow-hidden border border-emerald-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-3">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-bl-full opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-300/30 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Eye className="h-10 w-10 text-white" />
+                </div>
+
+                <h3 className="text-4xl font-bold text-gray-900 mb-6 group-hover:text-emerald-600 transition-colors duration-300">
+                  Our Vision
+                </h3>
+
+                <div className="space-y-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    To be the{" "}
+                    <span className="font-semibold text-emerald-600">
+                      leading global export company
+                    </span>{" "}
+                    that showcases the best of India to the world. We envision a
+                    future where Indian products are recognized and valued in
+                    every corner of the globe.
+                  </p>
+
+                  <div className="bg-emerald-50 rounded-2xl p-6 border-l-4 border-emerald-500">
+                    <h4 className="font-semibold text-emerald-800 mb-3">
+                      Our Global Impact Goals:
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-emerald-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          Establishing India as a premium export destination
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-emerald-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          Creating sustainable trade partnerships worldwide
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-emerald-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          Contributing to India's economic growth and global
+                          reputation
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 p-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl text-white">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold">Vision Timeline</span>
+                    <span className="text-emerald-100">2025-2030</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mission Card */}
+            <div className="group relative bg-white rounded-3xl p-10 shadow-2xl overflow-hidden border border-blue-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-3">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-400 to-blue-600 rounded-bl-full opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-300/30 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Target className="h-10 w-10 text-white" />
+                </div>
+
+                <h3 className="text-4xl font-bold text-gray-900 mb-6 group-hover:text-blue-600 transition-colors duration-300">
+                  Our Mission
+                </h3>
+
+                <div className="space-y-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    To facilitate{" "}
+                    <span className="font-semibold text-blue-600">
+                      seamless international trade
+                    </span>{" "}
+                    by connecting Indian manufacturers with global markets. We
+                    are committed to delivering superior quality, exceptional
+                    service, and building lasting relationships.
+                  </p>
+
+                  <div className="bg-blue-50 rounded-2xl p-6 border-l-4 border-blue-500">
+                    <h4 className="font-semibold text-blue-800 mb-3">
+                      Our Core Commitments:
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          Connecting Indian manufacturers with global
+                          opportunities
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          Ensuring superior quality in every product and service
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          Building lasting partnerships for mutual growth
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl text-white">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold">Active Since</span>
+                    <span className="text-blue-100">2008</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Core Values Enhanced */}
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                Our Core Values
+              </h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                The fundamental principles that guide every aspect of our
+                business operations
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  icon: Shield,
+                  title: "Quality Excellence",
+                  description:
+                    "Delivering premium quality Indian products that exceed international standards and customer expectations",
+                  color: "emerald",
+                  percentage: "100%",
+                },
+                {
+                  icon: Users,
+                  title: "Customer Focus",
+                  description:
+                    "Building lasting partnerships with global clients through exceptional service and personalized attention",
+                  color: "blue",
+                  percentage: "24/7",
+                },
+                {
+                  icon: Lightbulb,
+                  title: "Innovation",
+                  description:
+                    "Adopting cutting-edge logistics technology and modern practices for efficient export operations",
+                  color: "yellow",
+                  percentage: "Latest",
+                },
+                {
+                  icon: Handshake,
+                  title: "Trust & Transparency",
+                  description:
+                    "Operating with complete transparency, integrity, and reliability in all international trade dealings",
+                  color: "purple",
+                  percentage: "Always",
+                },
+              ].map((value, index) => (
+                <div
+                  key={index}
+                  className="group bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 relative overflow-hidden"
+                >
+                  <div
+                    className={`absolute top-0 right-0 w-20 h-20 bg-${value.color}-100 rounded-bl-3xl opacity-50`}
+                  ></div>
+
+                  <div className="relative z-10">
+                    <div
+                      className={`inline-flex items-center justify-center w-16 h-16 bg-${value.color}-100 text-${value.color}-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <value.icon className="h-8 w-8" />
+                    </div>
+
+                    <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors">
+                      {value.title}
+                    </h4>
+
+                    <p className="text-gray-600 leading-relaxed mb-4 text-sm">
+                      {value.description}
+                    </p>
+
+                    <div
+                      className={`inline-flex items-center px-3 py-1 bg-${value.color}-100 text-${value.color}-700 rounded-full text-sm font-semibold`}
+                    >
+                      {value.percentage}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Enhanced Commitment Statement */}
+          <div className="relative bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700 rounded-3xl p-12 md:p-16 text-white text-center overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-10 left-10 w-32 h-32 border border-white/30 rounded-full"></div>
+              <div className="absolute bottom-10 right-10 w-40 h-40 border border-white/20 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 border border-white/10 rounded-full"></div>
+            </div>
+
+            <div className="relative z-10 max-w-5xl mx-auto">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+                <Heart className="h-10 w-10 text-white" />
+              </div>
+
+              <h3 className="text-4xl md:text-5xl font-bold mb-8">
+                Our Commitment to Excellence
+              </h3>
+
+              <p className="text-xl md:text-2xl leading-relaxed mb-12 text-emerald-100">
+                We are committed to bridging the gap between Indian excellence
+                and global demand. Our dedication to quality, reliability, and
+                customer satisfaction drives us to continuously innovate our
+                services and expand our global reach, creating value for our
+                clients and partners worldwide.
+              </p>
+
+              <div className="grid md:grid-cols-4 gap-8">
+                {[
+                  { number: "100%", label: "Quality Guarantee", icon: Shield },
+                  { number: "24/7", label: "Global Support", icon: Clock },
+                  { number: "1+", label: "Years Experience", icon: Calendar },
+                  { number: "25+", label: "Countries Served", icon: Globe },
+                ].map((stat, index) => (
+                  <div key={index} className="group">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                      <stat.icon className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
+                      <div className="text-3xl font-bold mb-2">
+                        {stat.number}
+                      </div>
+                      <div className="text-emerald-200 font-medium">
+                        {stat.label}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12">
+                <button className="bg-white text-emerald-700 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                  Learn More About Our Journey
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="bg-blue-100 p-4 rounded-full">
-                    <stat.icon className="text-blue-600" size={32} />
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-600 rounded-full text-2xl font-semibold mb-4">
+              Our Products
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Premium Indian Products
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover our extensive range of quality Indian products ready for
+              global markets.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+              >
+                {/* Product Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div
+                    className={`absolute top-4 right-4 bg-${product.color}-600 p-2 rounded-xl`}
+                  >
+                    <product.icon className="text-white" size={24} />
                   </div>
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                  {stat.value}
-                </h3>
-                <p className="text-gray-600">{stat.label}</p>
+
+                {/* Product Content */}
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {product.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {product.description}
+                  </p>
+
+                  {/* View Details Button */}
+                  <Link
+                    to={`/products/${product.title
+                      .toLowerCase()
+                      .replace(/ /g, "")
+                      .replace(/&/g, "and")}`} // Remove spaces and replace '&' with 'and'
+                    className={`w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-300 flex items-center justify-center group-hover:scale-105 transform`}
+                  >
+                    View Details
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Features Section with Modern Cards */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Trimurti Fabrication?
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-600 rounded-full text-sm font-semibold mb-4">
+              Why Choose Us
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Excellence in Every Shipment
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We deliver excellence through proven expertise, advanced
-              technology, and unwavering commitment to quality
+              Your trusted partner for sourcing and exporting quality Indian
+              products worldwide
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="group relative bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
               >
-                <div className="flex justify-center mb-4">
-                  <div className="bg-blue-100 p-3 rounded-full">
-                    <feature.icon className="text-blue-600" size={24} />
+                <div className="relative z-10">
+                  <div
+                    className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <feature.icon className="text-white" size={28} />
                   </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-center">
-                  {feature.description}
-                </p>
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive steel fabrication solutions tailored to your
-              industrial and commercial needs
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 p-8 rounded-lg hover:bg-blue-50 transition-colors"
-              >
-                <div className="flex justify-center mb-6">
-                  <div className="bg-blue-600 p-4 rounded-full">
-                    <service.icon className="text-white" size={32} />
-                  </div>
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4 text-center">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6 text-center">
-                  {service.description}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-center text-gray-700"
-                    >
-                      <CheckCircle className="text-green-500 mr-2" size={16} />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Products Section with Sub-categories */}
 
-      {/* Testimonials Section */}
-      <section className="py-16 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Our Clients Say
+      {/* Testimonials Section with Photos */}
+      <section className="py-20 bg-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-emerald-900/20 to-gray-900"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Global Client Reviews
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Trusted by hundreds of satisfied clients across various industries
+              Trusted by businesses worldwide for quality and reliability
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-800 p-6 rounded-lg">
-                <div className="flex mb-4">
-                  <Quote className="text-yellow-400 mr-2" size={24} />
-                  <div className="flex">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="text-yellow-400 fill-current"
-                        size={16}
-                      />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-300 mb-4">{testimonial.text}</p>
-                <div>
-                  <p className="font-semibold text-white">{testimonial.name}</p>
-                  <p className="text-gray-400 text-sm">{testimonial.company}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p>Coming soon...</p>
         </div>
       </section>
 
-      {/* Image Gallery Section */}
-      <section className="py-16 bg-white">
+      {/* Product Gallery with Categories */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Work Gallery
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Our Export Gallery
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A glimpse of our completed projects and fabrication excellence
+              Premium quality Indian products ready for global markets
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {galleryImages.map((src, idx) => (
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {galleryImages.map((item, idx) => (
               <div
                 key={idx}
-                className="rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow"
+                className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
               >
-                <img
-                  src={src}
-                  alt={`Trimurti Fabrication Work ${idx + 1}`}
-                  className="w-full h-56 object-cover"
-                  onError={(e) => {
-                    e.target.src =
-                      "https://via.placeholder.com/400x220?text=Work+Image";
-                  }}
-                />
+                <div className="aspect-w-16 aspect-h-12 relative">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <span className="inline-block px-3 py-1 bg-emerald-500 rounded-full text-xs font-semibold mb-2">
+                    {item.category}
+                  </span>
+                  <h3 className="text-xl font-bold">{item.title}</h3>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CEO Section */}
-      <section className="py-16 bg-blue-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 rounded-lg shadow-lg bg-white">
-          <img
-            src={ceo.image}
-            alt={ceo.name}
-            className="w-40 h-40 rounded-full object-cover border-4 border-blue-200 shadow-md"
-            onError={(e) => {
-              e.target.src = "https://via.placeholder.com/160x160?text=CEO";
-            }}
-          />
-          <div>
-            <h3 className="text-2xl font-bold text-blue-800 mb-1">
-              {ceo.name}
-            </h3>
-            <p className="text-blue-600 font-semibold mb-4">{ceo.title}</p>
-            <p className="text-gray-700 text-lg italic">"{ceo.message}"</p>
+      {/* CEO Section with Enhanced Design */}
+      <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row">
+              <div className="lg:w-1/3 bg-gradient-to-br from-emerald-600 to-teal-600 p-8 flex items-center justify-center">
+                <div className="text-center">
+                  <img
+                    src={ceo.image}
+                    alt={ceo.name}
+                    className="w-48 h-48 rounded-full object-cover border-8 border-white/20 shadow-2xl mx-auto mb-6"
+                    onError={(e) => {
+                      e.target.src =
+                        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face";
+                    }}
+                  />
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4">
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                      {ceo.name}
+                    </h3>
+                    <p className="text-emerald-100 font-semibold">
+                      {ceo.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:w-2/3 p-8 lg:p-12 flex items-center">
+                <div>
+                  <div className="mb-6">
+                    <Quote className="h-12 w-12 text-emerald-600 mb-4" />
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                      Leadership Message
+                    </h3>
+                  </div>
+                  <p className="text-xl text-gray-700 leading-relaxed italic">
+                    {ceo.message}
+                  </p>
+                  <div className="mt-8 flex items-center text-emerald-600">
+                    <ExternalLink className="h-5 w-5 mr-2" />
+                    <span className="font-semibold">Connect with our CEO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Start Your Project?
+      {/* Contact Section with Gradient Background */}
+      <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Export with Us?
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Contact us today for a free consultation and quote
+            <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
+              Contact us today to discuss your export requirements and join our
+              global success story
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center">
-              <div className="bg-blue-500 p-4 rounded-full inline-block mb-4">
-                <Phone size={32} />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: Phone,
+                title: "Call Us",
+                info: "+91 9850139929",
+                description: "24/7 Support Available",
+              },
+              {
+                icon: Mail,
+                title: "Email Us",
+                info: "info@dadheglobal.com",
+                description: "Quick Response Guaranteed",
+              },
+              {
+                icon: MapPin,
+                title: "Visit Us",
+                info: "Mumbai, Maharashtra, India",
+                description: "Modern Export Hub",
+              },
+            ].map((contact, index) => (
+              <div key={index} className="text-center group">
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="bg-white/20 p-4 rounded-2xl inline-block mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <contact.icon className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {contact.title}
+                  </h3>
+                  <p className="text-2xl font-bold text-yellow-400 mb-1">
+                    {contact.info}
+                  </p>
+                  <p className="text-emerald-100 text-sm">
+                    {contact.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-              <p className="text-blue-100">+91 9850139929</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-500 p-4 rounded-full inline-block mb-4">
-                <Mail size={32} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-              <p className="text-blue-100">info@trimurtifabrication.com</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-500 p-4 rounded-full inline-block mb-4">
-                <MapPin size={32} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-              <p className="text-blue-100">Aurangabad, Maharashtra, India</p>
-            </div>
+            ))}
           </div>
+
           <div className="text-center">
-            <button className="bg-yellow-500 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors">
-              Get Free Quote Today
+            <button className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white px-12 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-yellow-500/25">
+              Get Export Quote Today
             </button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold text-blue-400 mb-4">
-                Trimurti Fabrication
-              </h3>
-              <p className="text-gray-400">
-                Your trusted partner for quality steel fabrication and
-                structural solutions.
+      {/* Footer with Enhanced Design */}
+      <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Global Export Ships and Containers"
+            className="w-full h-full object-cover opacity-15"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/98 via-gray-900/85 to-gray-900/95"></div>
+          {/* Additional overlay for better text readability */}
+          <div className="absolute inset-0 bg-emerald-900/20"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-3 rounded-xl shadow-lg">
+                  <Ship className="h-8 w-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                    DADHE Global Export
+                  </h3>
+                  <p className="text-emerald-300 text-sm font-medium">
+                    Connecting India to the World
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
+                Your trusted partner for exporting quality Indian products
+                worldwide. Building bridges between cultures through exceptional
+                trade relations since 2008.
               </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Projects
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Structural Steel
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Metal Fabrication
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Steel Furniture
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Custom Solutions
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-              <div className="space-y-2 text-gray-400">
-                <p className="flex items-center">
-                  <Clock className="mr-2" size={16} />
-                  Mon-Sat: 9AM-6PM
-                </p>
-                <p className="flex items-center">
-                  <Phone className="mr-2" size={16} />
-                  +91 9850139929
-                </p>
-                <p className="flex items-center">
-                  <Mail className="mr-2" size={16} />
-                  info@trimurtifabrication.com
-                </p>
+              <div className="flex space-x-4">
+                {/* Social Media Icons */}
+                <div className="flex items-center gap-4">
+                  <div className="bg-emerald-600/20 backdrop-blur-sm p-2 rounded-lg border border-emerald-500/30">
+                    <Globe className="h-5 w-5 text-emerald-400" />
+                  </div>
+                  <div className="bg-emerald-600/20 backdrop-blur-sm p-2 rounded-lg border border-emerald-500/30">
+                    <Mail className="h-5 w-5 text-emerald-400" />
+                  </div>
+                  <div className="bg-emerald-600/20 backdrop-blur-sm p-2 rounded-lg border border-emerald-500/30">
+                    <Phone className="h-5 w-5 text-emerald-400" />
+                  </div>
+                </div>
               </div>
             </div>
+
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-emerald-400">
+                Quick Links
+              </h4>
+              <ul className="space-y-3">
+                {["Home", "About Us", "Services", "Products", "Contact"].map(
+                  (link) => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
+                      >
+                        <ArrowRight className="h-4 w-4 mr-2 transform group-hover:translate-x-1 transition-transform" />
+                        {link}
+                      </a>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-emerald-400">
+                Export Products
+              </h4>
+              <ul className="space-y-3">
+                {[
+                  "Textiles",
+                  "Spices",
+                  "Handicrafts",
+                  "Food Products",
+                  "Electronics",
+                ].map((product) => (
+                  <li key={product}>
+                    <a
+                      href="#"
+                      className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
+                    >
+                      <Package className="h-4 w-4 mr-2 text-emerald-500" />
+                      {product}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Trimurti Fabrication. All rights reserved.</p>
+
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 mb-4 md:mb-0">
+              &copy; 2024 DADHE Global Export. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-6 text-gray-400">
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <div className="flex items-center">
+                <Phone className="mr-2" size={16} />
+                +91 9850139929
+              </div>
+            </div>
           </div>
         </div>
       </footer>
@@ -550,4 +1114,4 @@ const TrimurtiFabrication = () => {
   );
 };
 
-export default TrimurtiFabrication;
+export default DADHEGlobalExport;
