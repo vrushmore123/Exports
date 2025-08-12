@@ -130,8 +130,7 @@ const products = [
     icon: Shield,
     title: "Carpets",
     description: "Handwoven carpets and rugs with traditional craftsmanship",
-    image:
-      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/carpet.jpg",
     subCategories: [
       "Hand-knotted Carpets",
       "Silk Carpets",
@@ -237,11 +236,25 @@ const galleryImages = [
 ];
 
 // CEO Section data
-const ceo = {
-  name: "Mr. Rajesh Dadhe",
-  title: "Founder & CEO",
-  image: "/ceo.jpg",
-  message: `At DADHE Global Export, we bridge the gap between Indian manufacturers and global markets. With over 15 years of experience, we are committed to delivering quality products and exceptional service to our international clients. Thank you for choosing us as your trusted export partner.`,
+const leadership = {
+  founder: {
+    name: "Mr. Omkar Dadhe",
+    title: "Founder & Chairman",
+    image: "/photo-1.jpeg",
+    message: `As the founder of DADHE Global Export, I envisioned creating a bridge between India's rich heritage of quality products and the global marketplace. My journey began with a simple belief - that Indian craftsmanship and products deserve recognition worldwide. Today, I'm proud to see our company connecting cultures and creating lasting partnerships across continents.`,
+    experience: "2+ Years",
+    expertise: "International Trade & Business Development",
+    email: "dadheomkar1717@gmail.com",
+  },
+  ceo: {
+    name: "Mr. Popatrao Dadhe",
+    title: "Cofounder ",
+    image: "/photo.jpeg",
+    message: `Leading DADHE Global Export into the future, I focus on innovation, sustainability, and building stronger relationships with our global partners. Our commitment to excellence and customer satisfaction drives every decision we make. Together, we're not just exporting products - we're sharing India's story with the world.`,
+    experience: "2+ Years",
+    expertise: "Operations & Strategic Management",
+    email: "dadhepopatrao@gmail.com",
+  },
 };
 
 const DADHEGlobalExport = () => {
@@ -271,7 +284,7 @@ const DADHEGlobalExport = () => {
                   </div>
                   <div>
                     <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                      DADHE Global Exporters
+                      DADHE GLOBAL EXPORTERS
                     </h1>
                     <p className="text-xs text-gray-500 font-medium">
                       Connecting India to the World
@@ -343,7 +356,7 @@ const DADHEGlobalExport = () => {
             alt="Global Export Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-emerald-800/80 to-teal-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/5 via-emerald-400/5 to-teal-900/90"></div>
         </div>
 
         {/* Floating Elements */}
@@ -356,7 +369,7 @@ const DADHEGlobalExport = () => {
           <div className="animate-fade-in-up">
             <div className="mb-8">
               <span className="inline-block px-6 py-2 bg-yellow-400/20 text-yellow-300 rounded-full text-sm font-semibold backdrop-blur-sm border border-yellow-400/30">
-                🚢 Premium Export Services Since 2025
+                🚢 Premium Export Services Since 2024
               </span>
             </div>
 
@@ -367,10 +380,10 @@ const DADHEGlobalExport = () => {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-emerald-100 leading-relaxed">
-              Connecting global markets with premium Indian textiles, authentic
-              spices, exquisite handicrafts, and quality products through
-              seamless export solutions
+            <p className=" text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-red-100 leading-relaxed">
+              Connecting global markets with premium authentic spices, exquisite
+              handicrafts, and quality products through seamless export
+              solutions
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -515,7 +528,7 @@ const DADHEGlobalExport = () => {
                 <div className="mt-8 p-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl text-white">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold">Vision Timeline</span>
-                    <span className="text-emerald-100">2025-2030</span>
+                    <span className="text-emerald-100">2024-2030</span>
                   </div>
                 </div>
               </div>
@@ -578,7 +591,7 @@ const DADHEGlobalExport = () => {
                 <div className="mt-8 p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl text-white">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold">Active Since</span>
-                    <span className="text-blue-100">2008</span>
+                    <span className="text-blue-100">2024</span>
                   </div>
                 </div>
               </div>
@@ -840,89 +853,185 @@ const DADHEGlobalExport = () => {
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Trusted by businesses worldwide for quality and reliability
             </p>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Coming soon...
+            </p>
           </div>
-          <p>Coming soon...</p>
         </div>
       </section>
 
       {/* Product Gallery with Categories */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Our Export Gallery
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-9">
               Premium quality Indian products ready for global markets
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {galleryImages.map((item, idx) => (
-              <div
-                key={idx}
-                className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-              >
-                <div className="aspect-w-16 aspect-h-12 relative">
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="inline-block px-3 py-1 bg-emerald-500 rounded-full text-xs font-semibold mb-2">
-                    {item.category}
-                  </span>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                </div>
-              </div>
-            ))}
+            <p className="text-2xl text-black max-w-3xl mx-auto ">
+              Coming Soon...
+            </p>
           </div>
         </div>
       </section>
 
       {/* CEO Section with Enhanced Design */}
       <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="flex flex-col lg:flex-row">
-              <div className="lg:w-1/3 bg-gradient-to-br from-emerald-600 to-teal-600 p-8 flex items-center justify-center">
-                <div className="text-center">
-                  <img
-                    src={ceo.image}
-                    alt={ceo.name}
-                    className="w-48 h-48 rounded-full object-cover border-8 border-white/20 shadow-2xl mx-auto mb-6"
-                    onError={(e) => {
-                      e.target.src =
-                        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face";
-                    }}
-                  />
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-100 to-blue-100 text-emerald-700 rounded-full text-sm font-semibold mb-6">
+              <Users className="h-4 w-4" />
+              Leadership Team
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+              Meet Our{" "}
+              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
+                Leaders
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Visionary leaders driving innovation and excellence in global
+              trade, committed to connecting India with the world through
+              quality products and exceptional service.
+            </p>
+          </div>
+
+          {/* Leadership Cards */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {/* Founder Card */}
+            <div className="group bg-white rounded-3xl shadow-2xl overflow-hidden border border-emerald-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-3">
+              <div className="relative">
+                {/* Header Background */}
+                <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 p-8 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-emerald-800/30 rounded-full blur-3xl"></div>
+
+                  <div className="relative z-10 text-center">
+                    <img
+                      src={leadership.founder.image}
+                      alt={leadership.founder.name}
+                      className="w-32 h-32 rounded-full object-cover border-4 border-white/30 shadow-2xl mx-auto mb-4"
+                      onError={(e) => {
+                        e.target.src =
+                          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face";
+                      }}
+                    />
                     <h3 className="text-2xl font-bold text-white mb-1">
-                      {ceo.name}
+                      {leadership.founder.name}
                     </h3>
-                    <p className="text-emerald-100 font-semibold">
-                      {ceo.title}
+                    <p className="text-emerald-100 font-semibold mb-4">
+                      {leadership.founder.title}
                     </p>
+                    <div className="flex justify-center gap-4 text-sm">
+                      <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-white font-medium">
+                          {leadership.founder.experience}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-8">
+                  <div className="mb-6">
+                    <Quote className="h-8 w-8 text-emerald-600 mb-4" />
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">
+                      Founder's Vision
+                    </h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed italic mb-6">
+                    {leadership.founder.message}
+                  </p>
+
+                  <div className="bg-emerald-50 rounded-2xl p-4 border-l-4 border-emerald-500">
+                    <h5 className="font-semibold text-emerald-800 mb-2">
+                      Expertise:
+                    </h5>
+                    <p className="text-emerald-700">
+                      {leadership.founder.expertise}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex items-center text-emerald-600 group-hover:text-emerald-700 transition-colors">
+                    <Mail className="h-4 w-4 mr-2" />
+                    <span className="font-semibold text-sm">
+                      Connect with Founder
+                    </span>
+                  </div>
+                  <div className="mt-2 text-sm text-gray-600">
+                    <span className="font-semibold">Contact:</span>{" "}
+                    <span> {leadership.founder.email}</span>
                   </div>
                 </div>
               </div>
-              <div className="lg:w-2/3 p-8 lg:p-12 flex items-center">
-                <div>
-                  <div className="mb-6">
-                    <Quote className="h-12 w-12 text-emerald-600 mb-4" />
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                      Leadership Message
+            </div>
+
+            {/* CEO Card */}
+            <div className="group bg-white rounded-3xl shadow-2xl overflow-hidden border border-blue-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-3">
+              <div className="relative">
+                {/* Header Background */}
+                <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-8 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-800/30 rounded-full blur-3xl"></div>
+
+                  <div className="relative z-10 text-center">
+                    <img
+                      src={leadership.ceo.image}
+                      alt={leadership.ceo.name}
+                      className="w-32 h-32 rounded-full object-cover border-4 border-white/30 shadow-2xl mx-auto mb-4"
+                      onError={(e) => {
+                        e.target.src =
+                          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face";
+                      }}
+                    />
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                      {leadership.ceo.name}
                     </h3>
+                    <p className="text-blue-100 font-semibold mb-4">
+                      {leadership.ceo.title}
+                    </p>
+                    <div className="flex justify-center gap-4 text-sm">
+                      <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-white font-medium">
+                          {leadership.ceo.experience}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-xl text-gray-700 leading-relaxed italic">
-                    {ceo.message}
+                </div>
+
+                {/* Content */}
+                <div className="p-8">
+                  <div className="mb-6">
+                    <Quote className="h-8 w-8 text-blue-600 mb-4" />
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">
+                      Co-founder's Message
+                    </h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed italic mb-6">
+                    {leadership.ceo.message}
                   </p>
-                  <div className="mt-8 flex items-center text-emerald-600">
-                    <ExternalLink className="h-5 w-5 mr-2" />
-                    <span className="font-semibold">Connect with our CEO</span>
+
+                  <div className="bg-blue-50 rounded-2xl p-4 border-l-4 border-blue-500">
+                    <h5 className="font-semibold text-blue-800 mb-2">
+                      Expertise:
+                    </h5>
+                    <p className="text-blue-700">{leadership.ceo.expertise}</p>
+                  </div>
+
+                  <div className="mt-6 flex items-center text-blue-600 group-hover:text-blue-700 transition-colors">
+                    <Mail className="h-4 w-4 mr-2" />
+                    <span className="font-semibold text-sm">
+                      Connect with Co-founder
+                    </span>{" "}
+                  </div>
+                  <div className="mt-2 text-sm text-gray-600">
+                    <span className="font-semibold">Contact:</span>{" "}
+                    <span> {leadership.ceo.email}</span>
                   </div>
                 </div>
               </div>
@@ -950,20 +1059,20 @@ const DADHEGlobalExport = () => {
               {
                 icon: Phone,
                 title: "Call Us",
-                info: "+91 9850139929",
+                info: "+91 9765924777",
+                info2: "+91 9511660982",
                 description: "24/7 Support Available",
               },
               {
                 icon: Mail,
                 title: "Email Us",
-                info: "info@dadheglobal.com",
+                info: "dadheglobalexporters@gmail.com",
                 description: "Quick Response Guaranteed",
               },
               {
                 icon: MapPin,
                 title: "Visit Us",
-                info: "Mumbai, Maharashtra, India",
-                description: "Modern Export Hub",
+                info: "Chhatrapati Sambhajinagar, Maharashtra, India",
               },
             ].map((contact, index) => (
               <div key={index} className="text-center group">
@@ -974,7 +1083,7 @@ const DADHEGlobalExport = () => {
                   <h3 className="text-xl font-bold text-white mb-2">
                     {contact.title}
                   </h3>
-                  <p className="text-2xl font-bold text-yellow-400 mb-1">
+                  <p className="text-xl font-bold text-yellow-400 mb-1">
                     {contact.info}
                   </p>
                   <p className="text-emerald-100 text-sm">
@@ -1011,7 +1120,7 @@ const DADHEGlobalExport = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-3 rounded-xl shadow-lg">
+                <div className="bg-gradient-to-r from-emerald-200 to-teal-200 p-3 rounded-xl shadow-lg">
                   <Ship className="h-8 w-8 text-white" />
                 </div>
                 <div>
@@ -1026,7 +1135,7 @@ const DADHEGlobalExport = () => {
               <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
                 Your trusted partner for exporting quality Indian products
                 worldwide. Building bridges between cultures through exceptional
-                trade relations since 2008.
+                trade relations since 2024.
               </p>
               <div className="flex space-x-4">
                 {/* Social Media Icons */}
@@ -1104,7 +1213,7 @@ const DADHEGlobalExport = () => {
               </a>
               <div className="flex items-center">
                 <Phone className="mr-2" size={16} />
-                +91 9850139929
+                +91 9765924777
               </div>
             </div>
           </div>

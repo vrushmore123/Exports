@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CompanyProfile from "./src/components/CompanyProfile";
-import AboutUs from "./src/components/AboutUs";
+import AboutUs from "./AboutUs";
 import Services from "./src/components/Services";
 import VisionMission from "./src/components/VisionMission";
 import Contact from "./src/components/Contact";
@@ -12,6 +12,7 @@ import Pulses from "./src/pages/Pulses";
 import AgriculturalProducts from "./src/pages/AgriculturalProducts";
 import GemsAndImitationJewellery from "./src/pages/GemsAndImitationJewellery";
 import "./App.css";
+import ContactForm from "./src/components/Form";
 
 function App() {
   const contactRef = useRef(null);
@@ -53,6 +54,7 @@ function App() {
           path="/products/gemsandimitationjewellery"
           element={<GemsAndImitationJewellery />}
         />
+        <Route path="/form" element={<ContactForm />}/>
       </Routes>
     </Router>
   );
